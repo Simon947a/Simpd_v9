@@ -1,0 +1,40 @@
+library("MCDA")
+library("OutrankingTools")
+
+#install.packages("OutrankingTools")
+
+# the performance table
+performanceMatrix <- cbind(
+  c(5,5.2,5.5,5.3),
+  c(2,2,3,4),
+  c(16,16,32,64),
+  c(8,13,16,13),
+  c(449,649,829,1899)
+)
+# Vector containing names of alternatives
+alternatives <- c("Nokia 3","Nokia 5","Noia 6","Nokia 8")
+# Vector containing names of criteria
+criteria <- c( "Display","RAM","ROM","Camera","Price")
+criteriaWeights <- c(0.25,0.45,0.10,0.12,0.08)
+# vector indicating the direction of the criteria evaluation .
+minmaxcriteria <- c("max","max","max","max","min")
+# Matrix containing the profiles.
+profiles <- cbind(c(-100,-50),c(-1000,-500),c(4,7),c(4,7),c(15,20))
+# vector defining profiles' names
+profiles_names <-c("b1","b2")
+# thresholds vector
+IndifferenceThresholds <- c(15,80,1,0.5,1)
+PreferenceThresholds <- c(40,350,3,3.5,5)
+VetoThresholds <- c(100,850,5,4.5,8)
+# Testing
+Electre_tri(performanceMatrix,
+            alternatives,
+            profiles,
+            profiles_names,
+            criteria,
+            minmaxcriteria,
+            criteriaWeights,
+            IndifferenceThresholds,
+            PreferenceThresholds,
+            VetoThresholds,
+            lambda=NULL)

@@ -1,0 +1,62 @@
+> library(ahp)
+> ahpFile <- system.file("extdata", "data4.ahp", package="ahp")
+> dataAhp <- Load(ahpFile)
+> Calculate(dataAhp)
+> print(dataAhp, priority = function(x) x$sparent$priority["total", x$name])
+                          levelName priority
+1  Zakup smartphona Microsoft/Nokia       NA
+2   ¦--Wydajnosc                          NA
+3   ¦   ¦--Nokia 3 Czarna                 NA
+4   ¦   ¦--Nokia 3 Niebieska              NA
+5   ¦   ¦--Nokia 5 Szara                  NA
+6   ¦   ¦--Nokia 5 Czarna                 NA
+7   ¦   ¦--Nokia 6 Biala                  NA
+8   ¦   ¦--Nokia 6 Niebieska              NA
+9   ¦   ¦--Nokia 8 Srebna                 NA
+10  ¦   °--Nokia 8 Zlota                  NA
+11  ¦--Jakosc                             NA
+12  ¦   ¦--Nokia 3 Czarna                 NA
+13  ¦   ¦--Nokia 3 Niebieska              NA
+14  ¦   ¦--Nokia 5 Szara                  NA
+15  ¦   ¦--Nokia 5 Czarna                 NA
+16  ¦   ¦--Nokia 6 Biala                  NA
+17  ¦   ¦--Nokia 6 Niebieska              NA
+18  ¦   ¦--Nokia 8 Srebna                 NA
+19  ¦   °--Nokia 8 Zlota                  NA
+20  ¦--Styl                               NA
+21  ¦   ¦--Nokia 3 Czarna                 NA
+22  ¦   ¦--Nokia 3 Niebieska              NA
+23  ¦   ¦--Nokia 5 Szara                  NA
+24  ¦   ¦--Nokia 5 Czarna                 NA
+25  ¦   ¦--Nokia 6 Biala                  NA
+26  ¦   ¦--Nokia 6 Niebieska              NA
+27  ¦   ¦--Nokia 8 Srebna                 NA
+28  ¦   °--Nokia 8 Zlota                  NA
+29  °--Cena                               NA
+30      ¦--Nokia 3 Czarna                 NA
+31      ¦--Nokia 3 Niebieska              NA
+32      ¦--Nokia 5 Szara                  NA
+33      ¦--Nokia 5 Czarna                 NA
+34      ¦--Nokia 6 Biala                  NA
+35      ¦--Nokia 6 Niebieska              NA
+36      ¦--Nokia 8 Srebna                 NA
+37      °--Nokia 8 Zlota                  NA
+> Visualize(dataAhp)
+Warning message:
+package ‘bindrcpp’ was built under R version 3.4.4 
+> Analyze(dataAhp)
+                                   Weight Nokia 3 Czarna Nokia 3 Niebieska Nokia 8 Srebna Nokia 8 Zlota Nokia 5 Czarna Nokia 5 Szara
+1 Zakup smartphona Microsoft/Nokia 100.0%          13.5%             13.4%          12.9%         12.9%          12.0%         12.0%
+2  ¦--Cena                          42.7%           6.2%              6.2%           5.5%          5.5%           5.0%          5.0%
+3  ¦--Wydajnosc                     37.3%           4.4%              4.4%           5.3%          5.3%           4.4%          4.4%
+4  ¦--Jakosc                        15.6%           2.0%              2.0%           1.9%          1.9%           2.0%          2.0%
+5  °--Styl                           4.4%           0.9%              0.9%           0.2%          0.2%           0.7%          0.6%
+  Nokia 6 Biala Nokia 6 Niebieska Inconsistency
+1         11.7%             11.6%          8.9%
+2          4.7%              4.7%          0.0%
+3          4.6%              4.6%          0.0%
+4          1.9%              1.9%          0.0%
+5          0.5%              0.4%         22.6%
+> AnalyzeTable(dataAhp)
+> AnalyzeTable(dataAhp, decisionMaker = "Ojciec")
+> AnalyzeTable(dataAhp, decisionMaker = "Matka")

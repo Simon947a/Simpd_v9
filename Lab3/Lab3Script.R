@@ -1,0 +1,8 @@
+library(ahp)
+ahpFile <- system.file("extdata", "data.ahp", package="ahp")
+dataAhp <- Load(ahpFile)
+Calculate(dataAhp)
+print(dataAhp, priority = function(x) x$sparent$priority["total", x$name])
+Visualize(dataAhp)
+Analyze(dataAhp)
+AnalyzeTable(dataAhp)

@@ -1,0 +1,58 @@
+> library(ahp)
+> ahpFile <- system.file("extdata", "data.ahp", package="ahp")
+> dataAhp <- Load(ahpFile)
+> Calculate(dataAhp)
+> print(dataAhp, priority = function(x) x$sparent$priority["total", x$name])
+                          levelName priority
+1  Zakup smartphona Microsoft/Nokia       NA
+2   ¦--Wydajnosc                          NA
+3   ¦   ¦--Nokia 3 Czarna                 NA
+4   ¦   ¦--Nokia 3 Niebieska              NA
+5   ¦   ¦--Nokia 5 Szara                  NA
+6   ¦   ¦--Nokia 5 Czarna                 NA
+7   ¦   ¦--Nokia 6 Biala                  NA
+8   ¦   ¦--Nokia 6 Niebieska              NA
+9   ¦   ¦--Nokia 8 Srebna                 NA
+10  ¦   °--Nokia 8 Zlota                  NA
+11  ¦--Jakosc                             NA
+12  ¦   ¦--Nokia 3 Czarna                 NA
+13  ¦   ¦--Nokia 3 Niebieska              NA
+14  ¦   ¦--Nokia 5 Szara                  NA
+15  ¦   ¦--Nokia 5 Czarna                 NA
+16  ¦   ¦--Nokia 6 Biala                  NA
+17  ¦   ¦--Nokia 6 Niebieska              NA
+18  ¦   ¦--Nokia 8 Srebna                 NA
+19  ¦   °--Nokia 8 Zlota                  NA
+20  ¦--Styl                               NA
+21  ¦   ¦--Nokia 3 Czarna                 NA
+22  ¦   ¦--Nokia 3 Niebieska              NA
+23  ¦   ¦--Nokia 5 Szara                  NA
+24  ¦   ¦--Nokia 5 Czarna                 NA
+25  ¦   ¦--Nokia 6 Biala                  NA
+26  ¦   ¦--Nokia 6 Niebieska              NA
+27  ¦   ¦--Nokia 8 Srebna                 NA
+28  ¦   °--Nokia 8 Zlota                  NA
+29  °--Cena                               NA
+30      ¦--Nokia 3 Czarna                 NA
+31      ¦--Nokia 3 Niebieska              NA
+32      ¦--Nokia 5 Szara                  NA
+33      ¦--Nokia 5 Czarna                 NA
+34      ¦--Nokia 6 Biala                  NA
+35      ¦--Nokia 6 Niebieska              NA
+36      ¦--Nokia 8 Srebna                 NA
+37      °--Nokia 8 Zlota                  NA
+> Visualize(dataAhp)
+> Analyze(dataAhp)
+                                   Weight Nokia 3 Niebieska Nokia 3 Czarna Nokia 5 Czarna Nokia 5 Szara Nokia 6 Niebieska
+1 Zakup smartphona Microsoft/Nokia 100.0%             16.5%          16.3%          14.4%         14.3%             11.3%
+2  ¦--Wydajnosc                     41.7%              6.6%           6.6%           6.6%          6.6%              4.4%
+3  ¦--Cena                          30.3%              6.1%           6.1%           4.2%          4.2%              3.3%
+4  ¦--Jakosc                        23.6%              2.8%           2.8%           2.9%          2.9%              3.1%
+5  °--Styl                           4.3%              1.0%           0.8%           0.6%          0.6%              0.5%
+  Nokia 6 Biala Nokia 8 Zlota Nokia 8 Srebna Inconsistency
+1         11.3%          7.9%           7.9%          5.8%
+2          4.4%          3.3%           3.3%          0.0%
+3          3.3%          1.5%           1.5%          0.0%
+4          3.1%          3.0%           3.0%            NA
+5          0.5%          0.2%           0.2%         14.8%
+> AnalyzeTable(dataAhp)
